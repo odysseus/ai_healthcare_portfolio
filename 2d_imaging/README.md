@@ -10,7 +10,7 @@ The [NIH Chest X-Ray dataset](https://www.kaggle.com/nih-chest-xrays/data) was u
 The prompt for this project was to differentiate between patients with pneumonia and those without using the chest x-ray data and a convolutional neural net (CNN) to perform the classification. Otherwise the approach to the problem was open-ended.
 
 
-## Libraries/Tech Stack
+## Libraries and Tech Stack
 
 - **Pandas** and **pyplot** were used for the exploratory data analysis
 - **Keras/Tensorflow** was used to split data, augment it, and train the model.
@@ -27,7 +27,7 @@ The prompt for this project was to differentiate between patients with pneumonia
 - `*.png` files are the performance graphs (ROC, precision-recall, training history) that are also included in the FDA submission pdf.
 
 
-## Reflections/Commentary
+## Reflections and Commentary
 
 The size of this data set gave a lot of reasons for hope but this size was as much a challenge as an asset as so many of the conditions contained within could be mistaken for one another. Ultimately I had to approach the problem as one of identifying everything that looked like pneumonia or was comorbid with it to the extent that it could be treated as an indicator of the desired positive class.
 
