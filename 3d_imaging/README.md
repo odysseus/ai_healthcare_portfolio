@@ -22,6 +22,7 @@ Given a set of 3D images, which have been cropped to include the hippocampus reg
 - `src/build_train_model` contains the Python files defining the pytorch UNet and all the associated code for converting the data into tensors and training the model. It is a mixture of my own code as well as pre-written functions.
 - `src/generate_reports` contains code to take a finished model, run it on a new example, and create a PNG report that is sent to an OHIF web-viewer for medical images. `inference_dcm.py` is largely (~ >80%) my code, the code in the `utils/` folder is mine as well. The shell scripts and UNet definition were provided.
 - `out/` contains screenshots of the final outputted reports for test files. It also contains the tensorboard output for the training progress and the validation results.
+- `validation.pdf` is a document for a clinical partner discussing the necessary dataset to be acquired for FDA validation.
 
 ## Reflections and Commentary
 
