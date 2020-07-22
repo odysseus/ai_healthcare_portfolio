@@ -1,4 +1,4 @@
-# Udacity 2D Imaging Project
+# Udacity 3D Imaging Project
 
 ## Dataset
 
