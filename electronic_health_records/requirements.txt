@@ -1,0 +1,9 @@
+pandas
+numpy
+scikit-learn
+tensorflow
+tensorflow_probability
+matplotlib
+aequitas
+ipykernel
+jupyterlab
