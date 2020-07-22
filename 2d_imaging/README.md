@@ -12,9 +12,9 @@ The prompt for this project was to differentiate between patients with pneumonia
 
 ## Libraries and Tech Stack
 
-- **Pandas** and **pyplot** were used for the exploratory data analysis
-- **Keras/Tensorflow** was used to split data, augment it, and train the model.
-- The choice of CNN was a pre-trained **InceptionV3** model whose weights were initially locked to train the newly-added dense layers, and later opened up to training the remaining convolutional layers as medical imaging bears less resemblance to ImageNet classes than in many other transfer-learning tasks.
+- `pandas` and `pyplot` were used for the exploratory data analysis
+- `keras` and `tensorflow` were used to split data, augment it, and train the model.
+- The choice of CNN was a pre-trained `inceptionV3` model whose weights were initially locked to train the newly-added dense layers, and later opened up to training the remaining convolutional layers as medical imaging bears less resemblance to ImageNet classes than in many other transfer-learning tasks.
 
 ## Important Files and Concepts
 
@@ -24,7 +24,7 @@ The prompt for this project was to differentiate between patients with pneumonia
   - The work was done in a remote environment that had a habit of disconnecting during training so it ultimately required short training stints with aggressive backup of any non-reproducible data.
   - The final model didn't have a remarkable ability to identify positive cases so the chosen threshold for classifying as positive was chosen in such a way that it excelled at eliminating negative cases. This is covered in more detail at the bottom of the notebook.
 - `FDA_Submission.pdf` is an example FDA approval submission listing the intended/indicated uses, it also includes performance information about the algorithm
-- `out/` contains several output files regarding performance: ROC, precision-recall, and training history. These are also included in the FDA submission pdf. 
+- `out/` contains several output files regarding performance: ROC, precision-recall, and training history. These are also included in the FDA submission pdf.
 
 
 ## Reflections and Commentary
