@@ -27,8 +27,16 @@ The prompt for this project was to differentiate between patients with pneumonia
 - `out/` contains several output files regarding performance: ROC, precision-recall, and training history. These are also included in the FDA submission pdf.
 
 
-## Reflections and Commentary
+## Performance, Personal Commentary, and Potential Followup
 
-The size of this data set gave a lot of reasons for hope but this size was as much a challenge as an asset as so many of the conditions contained within could be mistaken for one another. Ultimately I had to approach the problem as one of identifying everything that looked like pneumonia or was comorbid with it to the extent that it could be treated as an indicator of the desired positive class.
+The final performance was influenced by the potential clinical context of the algorithm. Rather than simply shooting for the highest F1 score I instead chose a threshold that had what I considered to be clinical utility. The algorithm achieves 95% recall on the positive class at the cost of only 24% precision. The negative class has 21% recall with 94% precision. In other words it is unlikely to generate false negatives and still catches roughly 20% of the true negatives. As a screening or prioritization tool this has virtue.
 
-This change was a substantial improvement over the first iteration which was incapable of evolving past a no-skill level of classification, but the end results were not remarkable. Ultimately if I approach this problem again I will probably look at a pipeline of CNNs to first try and separate the x-rays labeled `No Finding` from the ones with any other finding label. From there it would hopefully be easier to identify specific structures belonging to any of our other labels like `Consolidation` or `Mass`. Essentially the model needs the ability to make more specific judgments. For the same reason an ensemble approach could work well here.
+The size of this dataset gave a lot of reasons for hope but this size was as much a challenge as an asset as so many of the conditions contained within could be mistaken for one another. Ultimately I had to approach the problem as one of identifying everything that looked like pneumonia or was comorbid with it to the extent that it could be treated as an indicator of the desired positive class.
+
+This is one approach, and it resulted in a substantial improvement over a more simplistic model, but there are a number of different ways to approach this data. I strongly suspect that the construction of a good training set is the dominant feature in the final quality of the output.
+
+Improvements on this approach boil down to rethinking the way the problem is addressed. A pipeline approach that separates the `No Finding` x-rays from the remainder using one CNN, and then tries to assess the remainder with one or more CNNs might perform better. An ensemble approach could help for much the same reasons: There needs to be more fine-grained distinction between similar-looking classes.
+
+This would be an interesting case-study to take a lottery-ticket approach to x-rays: If we find a CNN that works well on one class of chest x-rays will it generalize to others after substantial pruning.
+
+Lastly, this seems like a case where the CNN output should be combined with other patient information data to inform classification and to minimize the cost of misclassification. If we are using this as a way to prioritize x-rays for a radiologist we can do the most good by erring on the side of caution for very high-risk patients. 

@@ -24,6 +24,8 @@ Given a set of 3D images, which have been cropped to include the hippocampus reg
 - `out/` contains screenshots of the final outputted reports for test files. It also contains the tensorboard output for the training progress and the validation results.
 - `validation.pdf` is a document for a clinical partner discussing the necessary dataset to be acquired for FDA validation.
 
-## Reflections and Commentary
+## Performance, Personal Commentary, and Potential Followup
 
-This algorithm worked extremely well on the given task, the architecture is one known to function effectively at this problem. Given the exceptional performance there is not much I would otherwise do to approach the problem differently.
+This algorithm performed exceptionally well with a mean Dice coefficient of .903, mean Jaccard index of .825, mean sensitivity of .902 and mean specificity of .998. Furthermore, since the goal of the algorithm is to track changes in the hippocampal volume these small errors won't affect our performance so long as the algorithm consistently over/under estimates on the same patient. In other words if the segmented volume measurement says the patient's hippocampus has declined in size we need to ensure that this is not just a fluke of the algorithm.
+
+Moving forward I would want to better understand any edge cases in the training data. Are there certain features of an image that cause problems for our approach? Can those features be ameliorated with a different imaging protocol or machine settings? Can we identify patients whose images are likely to have poorer accuracy automatically. Answers to these questions are likely to be more important to the future of the algorithm than any attempts to push the already excellent performance numbers up even higher.
